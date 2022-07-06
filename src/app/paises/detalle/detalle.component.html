@@ -1,0 +1,38 @@
+<!--Vista Modal-->
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal" >
+    <div class="modal" tabindex="-1" style="display:block;"><!--Display block para que aparezca-->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{titulo}}</h5>
+            <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  <ul class="list-group text-dark mb-3">
+                    <li class="list-group-item active"> {{pais.name}}</li>
+                    <li class="list-group-item"><span style="font-weight:bold;">Capital:</span> {{pais.capital}}</li>
+                    <li class="list-group-item"><span style="font-weight:bold;">Moneda:</span> 
+                      <span *ngFor="let currencie of pais.currencies"> {{ currencie.name }} -</span></li>
+                    <li class="list-group-item"><span style="font-weight:bold;">Población:</span> {{pais.population}}</li>
+                    <li class="list-group-item"><span style="font-weight:bold;">Idioma:</span>
+                      <span *ngFor="let idioma of pais.languages"> {{ idioma.name }} -</span></li>
+                  </ul>
+                </div>
+                <div class="col-sm">
+                  <img *ngIf="pais?.flag" src="{{pais.flag}}" 
+                  alt="{{pais.flag}}" class="img-thumbnail rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>

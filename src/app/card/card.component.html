@@ -1,0 +1,19 @@
+
+<div class="card bg-light text-dark container-fluid">
+  <div class="row">
+    <div class="col-sm-6 ">
+   
+      <img src="./assets/img/mapa.jpg" class="card-img " alt="...">
+      </div>
+      <div class="col-sm-6">
+      <select class="form-control mx-sm-1 mb-2" [(ngModel)]="buscarporRegion">
+        <option value="">Regiones</option>
+        <option value="{{region.region}}" *ngFor="let region of paises |ordenarRegion | quirepreg">{{region.region}}</option>
+      
+      </select>
+      </div>
+    </div>  
+  
+  </div>
+  <app-paises></app-paises>
+

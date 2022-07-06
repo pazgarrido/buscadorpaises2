@@ -1,0 +1,34 @@
+<app-detalle *ngIf="paisSeleccionado" [pais] ="paisSeleccionado"></app-detalle>
+  <div class="card border-primary col-12 ">
+    <div class="card-body text-primary ">
+      <h2 class="card-title">Listado de países</h2>
+      
+      <div class="my-2 text-left">
+   
+      </div>
+      <table class="table table-bordered table-striped row-border hover table-responsive ">
+        <thead>
+          <tr>
+            <th>Continente</th>
+            <th>País</th>
+            <th>Capital</th>
+            <th>Moneda</th>
+            <th>Más info</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pais of paises |buscarRegion:buscarporRegion">
+          <td>{{ pais.region }}</td>
+          <td> {{ pais.name }}</td>
+          <td>{{ pais.capital }}</td>
+          <div class="wrapper" *ngFor="let currencie of pais.currencies">
+          <td >{{ currencie.name }}</td>
+        </div>
+          <td align="center"><i (click)="abrirModal(pais)" class="bi bi-info-circle-fill" style=" cursor: pointer;"></i></td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  
