@@ -16,7 +16,7 @@
                     <li class="list-group-item"><span style="font-weight:bold;">Capital:</span> {{pais.capital}}</li>
                     <li class="list-group-item"><span style="font-weight:bold;">Moneda:</span> 
                       <span *ngFor="let currencie of pais.currencies"> {{ currencie.name }} -</span></li>
-                    <li class="list-group-item"><span style="font-weight:bold;">Población:</span> {{pais.population}}</li>
+                    <li class="list-group-item"><span style="font-weight:bold;">Población:</span> {{pais.population | number}}</li>
                     <li class="list-group-item"><span style="font-weight:bold;">Idioma:</span>
                       <span *ngFor="let idioma of pais.languages"> {{ idioma.name }} -</span></li>
                   </ul>

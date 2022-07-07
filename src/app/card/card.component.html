@@ -5,15 +5,19 @@
    
       <img src="./assets/img/mapa.jpg" class="card-img " alt="...">
       </div>
-      <div class="col-sm-6">
-      <select class="form-control mx-sm-1 mb-2" [(ngModel)]="buscarporRegion">
+      <div class="col-sm-6 selectores ">
+      <select class="form-control mx-sm-1 mb-2" [(ngModel)]="buscarporRegion"  style="max-width: 500px;">
         <option value="">Regiones</option>
         <option value="{{region.region}}" *ngFor="let region of paises |ordenarRegion | quirepreg">{{region.region}}</option>
       
       </select>
+      <input class="form-control" type="text" placeholder="Buscar País" aria-label="default input example"
+      style="max-width: 500px;" [(ngModel)]="searchTerm" >
+
       </div>
+      
     </div>  
   
   </div>
-  <app-paises></app-paises>
+  <app-paises [buscarporRegion]="buscarporRegion" [searchTerm]="searchTerm"></app-paises>
 

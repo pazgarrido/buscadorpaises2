@@ -9,8 +9,10 @@ import { PaisesService } from '../paises/paises.service';
 })
 export class CardComponent implements OnInit {
   @Input() paises: Paises[] = [];
+  paisesFiltrados: Paises[] = [];
 
    buscarporRegion = '';
+   searchTerm = '';
 
   constructor(private paisesService: PaisesService) { }
 
@@ -21,6 +23,12 @@ export class CardComponent implements OnInit {
   cargarAll(): void{
     this.paisesService.getAllPaises().subscribe(paises => this.paises = paises);
   
+  }
+
+  search(value: string): void {
+    this.paises = this.paisesFiltrados.filter((val) =>
+      val.name.toLowerCase().includes(value)
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ModalService } from './modal.service';
 import { Paises } from './paises';
 import { PaisesService } from './paises.service';
@@ -14,7 +14,8 @@ export class PaisesComponent implements OnDestroy, OnInit {
   paises: Paises[] = [];
   paisSeleccionado: Paises | any;
 
-  buscarporRegion = '';
+  @Input() buscarporRegion = '';
+  @Input() searchTerm = '';
    
  
    constructor(private paisesService: PaisesService,

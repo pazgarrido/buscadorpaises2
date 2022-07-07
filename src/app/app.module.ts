@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +16,10 @@ import { DetalleComponent } from './paises/detalle/detalle.component';
 import { QuirepregPipe } from './pipes/quirepreg.pipe';
 import { OrdenarRegionPipe } from './pipes/ordenar-region.pipe';
 import { BuscarRegionPipe } from './pipes/buscar-region.pipe';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+
+registerLocaleData(localeEs)
+
 
 @NgModule({
   declarations: [
@@ -23,7 +30,8 @@ import { BuscarRegionPipe } from './pipes/buscar-region.pipe';
     DetalleComponent,
     QuirepregPipe,
     OrdenarRegionPipe,
-    BuscarRegionPipe
+    BuscarRegionPipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,9 @@ import { BuscarRegionPipe } from './pipes/buscar-region.pipe';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
