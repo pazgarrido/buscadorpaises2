@@ -13,6 +13,14 @@ img {
     margin-top: 30px;
 }
 
-input {
+.selector {
+  margin-bottom: 25px;
+}
+
+label {
     margin-top: 20px;
+}
+
+.searchPob{
+    margin-bottom: 10px;
 }

@@ -2,6 +2,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es'
@@ -37,7 +38,8 @@ registerLocaleData(localeEs)
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es'},

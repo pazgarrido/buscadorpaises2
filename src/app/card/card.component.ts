@@ -13,6 +13,8 @@ export class CardComponent implements OnInit {
 
    buscarporRegion = '';
    searchTerm = '';
+   
+
 
   constructor(private paisesService: PaisesService) { }
 
