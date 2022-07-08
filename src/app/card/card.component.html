@@ -1,32 +1,35 @@
 
 <div class="card bg-light text-dark container-fluid">
-  <div class="row">
-    <div class="col-sm-6 ">
+  
+    <div class="imagen">
    
       <img src="./assets/img/mapa.jpg" class="card-img " alt="...">
-      </div>
-      <div class="col-sm-6 selectores ">
-        <div class="selector">
+      <!--<div class="centrado">
+      <h2>Buscador de países</h2>
+      
+      </div>--> 
+    </div> 
+      <div class="row">
+ 
+        <div class="col-lg-3 selector">
       <select class="form-control mx-sm-1 mb-2" [(ngModel)]="buscarporRegion"  style="max-width: 500px;">
         <option value="">Regiones</option>
         <option value="{{region.region}}" *ngFor="let region of paises |ordenarRegion | quirepreg">{{region.region}}</option>
       
       </select>
     </div>
-    <div class="search">
+    <div class="col-lg-4 search">
       <input class="form-control" type="text" placeholder="Buscar País" aria-label="default input example"
-      style="max-width: 500px;" [(ngModel)]="searchTerm" >
+      style="max-width: 500px;" [(ngModel)]="searchTerm">
       </div>
-    <div class="searchPob">
-        <label>Buscar Población:</label><br>
+    <div class=" col-lg-5 searchPob">
+        <label>Población:</label>
         <input type="text" placeholder="Min. Población" style="margin-right: 10px;" >
         <input type="text" placeholder="Max. Población" >
       </div>
-
+      
       </div>
-      
-      
-    </div>  
+     
   
   </div>
   <app-paises [buscarporRegion]="buscarporRegion" [searchTerm]="searchTerm"></app-paises>
