@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ModalService } from './modal.service';
 import { Paises } from './paises';
 import { PaisesService } from './paises.service';
+import { ParametrosService } from '../parametros.service';
 
 @Component({
   selector: 'app-paises',
@@ -16,13 +17,17 @@ export class PaisesComponent implements OnDestroy, OnInit {
 
   @Input() buscarporRegion = '';
   @Input() searchTerm = '';
+  max:number= 0;
+  min: number= 0;
+   
 
   totalPaginas!: number;
   page: number = 1;
-   
+  
  
    constructor(private paisesService: PaisesService,
-     private modalService: ModalService) { }
+     private modalService: ModalService,
+     private serviceParam:ParametrosService) { }
  
    ngOnInit(): void {
  
@@ -50,5 +55,11 @@ export class PaisesComponent implements OnDestroy, OnInit {
      console.log(pais);
  
     }
+
+    findInterval(pais: Paises, max: number, min: number): any {
+      console.log('findInterval', max, min)
+      return pais.population <= max && pais.population >= min
+    }
+   
  
  }

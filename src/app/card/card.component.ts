@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Paises } from '../paises/paises';
 import { PaisesService } from '../paises/paises.service';
+import { ParametrosService } from '../parametros.service';
 
 @Component({
   selector: 'app-card',
@@ -13,10 +14,13 @@ export class CardComponent implements OnInit {
 
    buscarporRegion = '';
    searchTerm = '';
+   @Input() max:number= 0;
+   @Input() min: number= 0;
    
 
 
-  constructor(private paisesService: PaisesService) { }
+  constructor(private paisesService: PaisesService,
+    private serviceParam:ParametrosService) { }
 
   ngOnInit(): void {
     this.cargarAll();
@@ -32,5 +36,15 @@ export class CardComponent implements OnInit {
       val.name.toLowerCase().includes(value)
     );
   }
+  cambiamax(valor:any){
+    this.serviceParam.updatedDataMax(valor);
+    console.log(valor)
+  }
+  cambiamin(valor:any){
+    this.serviceParam.updatedDataMin(valor);
+     console.log('valor')
+  }
+
+ 
 
 }

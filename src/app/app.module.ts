@@ -18,6 +18,7 @@ import { QuirepregPipe } from './pipes/quirepreg.pipe';
 import { OrdenarRegionPipe } from './pipes/ordenar-region.pipe';
 import { BuscarRegionPipe } from './pipes/buscar-region.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { CallbackPipe } from './pipes/callback.pipe';
 
 registerLocaleData(localeEs)
 
@@ -32,7 +33,8 @@ registerLocaleData(localeEs)
     QuirepregPipe,
     OrdenarRegionPipe,
     BuscarRegionPipe,
-    SearchFilterPipe
+    SearchFilterPipe,
+    CallbackPipe
   ],
   imports: [
     BrowserModule,

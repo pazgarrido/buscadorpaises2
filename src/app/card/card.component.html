@@ -11,26 +11,27 @@
     </div> 
       <div class="row">
  
-        <div class="col-lg-5 selector">
+        <div class="col-lg-4 selector">
       <select class="form-control mx-sm-1 mb-2" [(ngModel)]="buscarporRegion"  style="max-width: 500px;">
         <option value="">Regiones</option>
         <option value="{{region.region}}" *ngFor="let region of paises |ordenarRegion | quirepreg">{{region.region}}</option>
       
       </select>
     </div>
-    <div class="col-lg-5 search">
+    <div class="col-lg-3 search">
       <input class="form-control" type="text" placeholder="Buscar País" aria-label="default input example"
       style="max-width: 500px;" [(ngModel)]="searchTerm">
       </div>
-   <!-- <div class=" col-lg-5 searchPob">
+    <div class=" col-lg-5 searchPob">
         <label>Población:</label>
-        <input type="text" placeholder="Min. Población" style="margin-right: 10px;" >
-        <input type="text" placeholder="Max. Población" >
-      </div>-->
+        <input type="number" placeholder="Min. Población" [(ngModel)]="min" (ngModelChange)="cambiamin($event)"
+         style="margin-right: 10px;" >
+        <input type="number" placeholder="Max. Población" [(ngModel)]="max" (ngModelChange)="cambiamax($event) " >
+      </div>
       
       </div>
      
   
   </div>
-  <app-paises [buscarporRegion]="buscarporRegion" [searchTerm]="searchTerm"></app-paises>
+  <app-paises [buscarporRegion]="buscarporRegion" [searchTerm]="searchTerm" ></app-paises>
 
